@@ -10,10 +10,10 @@
             {
                 "version": "1.0.0.0",
                 "targetAbi": "10.9.0.0",
-                "sourceUrl": "https://github.com/smkohnstamm/jellyfin-plugin-webos-scroll-fix/releases/download/v1.0.0.0/Jellyfin.Plugin.WebOSScrollFix_1.0.0.0.zip",
-                "checksum": "",
+                "sourceUrl": "https://github.com/smkohnstamm/jellyfin-plugin-webos-scroll-fix/releases/download/v1.0.0.0/Jellyfin.Plugin.WebOSScrollFix_v1.0.0.0.zip",
+                "checksum": "d8a9014b4dbc61818a005d281c6e0852",
                 "changelog": "Initial release - Fixes WebOS TV Guide scroll issue using File Transformation plugin",
-                "timestamp": "2025-01-27T00:00:00Z"
+                "timestamp": "2025-11-25T21:00:00Z"
             }
         ]
     }

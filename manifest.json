@@ -1,0 +1,21 @@
+[
+    {
+        "category": "General",
+        "guid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        "name": "WebOS Scroll Fix",
+        "description": "Fixes TV Guide scroll issue on WebOS devices (LG TVs). When navigating down in the TV Guide using arrow keys, items now automatically scroll into view instead of disappearing off the bottom of the screen.",
+        "owner": "simonkohnstamm",
+        "overview": "Fixes TV Guide scroll issue on WebOS using File Transformation plugin. Injects CSS and JavaScript to ensure focused items scroll into view during keyboard navigation.",
+        "versions": [
+            {
+                "version": "1.0.0.0",
+                "targetAbi": "10.9.0.0",
+                "sourceUrl": "https://github.com/simonkohnstamm/media-server/releases/download/v1.0.0.0/Jellyfin.Plugin.WebOSScrollFix_1.0.0.0.zip",
+                "checksum": "",
+                "changelog": "Initial release - Fixes WebOS TV Guide scroll issue using File Transformation plugin",
+                "timestamp": "2025-01-27T00:00:00Z"
+            }
+        ]
+    }
+]
+

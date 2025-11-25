@@ -27,7 +27,7 @@ The WebOS Scroll Fix plugin requires the File Transformation plugin to work.
    - Click: Add Repository
    - Enter:
      - **Name:** `WebOS Scroll Fix`
-     - **URL:** `https://raw.githubusercontent.com/simonkohnstamm/media-server/main/jellyfin-plugin-webos-scroll-fix/manifest.json`
+     - **URL:** `https://raw.githubusercontent.com/smkohnstamm/jellyfin-plugin-webos-scroll-fix/master/manifest.json`
    - Click: Save
 
 2. **Install Plugin**:

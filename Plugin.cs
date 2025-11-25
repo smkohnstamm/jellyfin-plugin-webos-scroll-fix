@@ -4,7 +4,6 @@ using System.Text.Json;
 using MediaBrowser.Common.Plugins;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Model.Plugins;
-using MediaBrowser.Model.Serialization;
 using Microsoft.Extensions.Logging;
 
 namespace Jellyfin.Plugin.WebOSScrollFix;
@@ -19,7 +18,7 @@ public class Plugin : BasePlugin<PluginConfiguration>
     public Plugin(
         IApplicationPaths applicationPaths,
         ILoggerFactory loggerFactory,
-        IJsonSerializer jsonSerializer,
+        MediaBrowser.Model.Serialization.IJsonSerializer jsonSerializer,
         IConfigurationManager configurationManager)
         : base(applicationPaths, loggerFactory, jsonSerializer, configurationManager)
     {

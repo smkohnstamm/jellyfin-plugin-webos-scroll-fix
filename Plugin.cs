@@ -41,19 +41,6 @@ public class Plugin : BasePlugin<PluginConfiguration>
     /// <inheritdoc />
     public override string Description => "Fixes TV Guide scroll issue on WebOS devices. Uses File Transformation plugin to inject CSS and JavaScript.";
 
-    /// <inheritdoc />
-    public override void OnPluginInstalled()
-    {
-        base.OnPluginInstalled();
-        RegisterFileTransformation();
-    }
-
-    /// <inheritdoc />
-    public override void OnPluginUninstalled()
-    {
-        base.OnPluginUninstalled();
-    }
-
     /// <summary>
     /// Registers the file transformation with File Transformation plugin.
     /// </summary>

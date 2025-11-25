@@ -11,7 +11,7 @@ echo ""
 
 # Check if .NET SDK is available
 if ! command -v dotnet &> /dev/null; then
-    echo "Error: .NET SDK not found. Please install .NET 6.0 SDK first."
+    echo "Error: .NET SDK not found. Please install .NET 8.0 SDK first."
     echo "Visit: https://dotnet.microsoft.com/download"
     exit 1
 fi
@@ -39,7 +39,7 @@ echo "Building plugin..."
 cd "$PLUGIN_DIR"
 dotnet build -c Release
 
-if [ ! -f "bin/Release/net6.0/Jellyfin.Plugin.WebOSScrollFix.dll" ]; then
+if [ ! -f "bin/Release/net8.0/Jellyfin.Plugin.WebOSScrollFix.dll" ]; then
     echo "Error: Build failed or DLL not found"
     exit 1
 fi
@@ -48,7 +48,7 @@ fi
 echo ""
 echo "Installing plugin..."
 mkdir -p "$PLUGINS_DIR"
-cp bin/Release/net6.0/Jellyfin.Plugin.WebOSScrollFix.dll "$PLUGINS_DIR/"
+cp bin/Release/net8.0/Jellyfin.Plugin.WebOSScrollFix.dll "$PLUGINS_DIR/"
 chmod 644 "$PLUGINS_DIR/Jellyfin.Plugin.WebOSScrollFix.dll"
 
 echo "✓ Plugin installed to: $PLUGINS_DIR"

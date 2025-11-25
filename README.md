@@ -100,8 +100,8 @@ dotnet build -c Release
 
 ### Requirements
 
-- .NET 6.0 SDK
-- Jellyfin 10.9.0+ (adjust version in .csproj if needed)
+- .NET 8.0 SDK
+- Jellyfin 10.9.0+ (requires .NET 8.0)
 - File Transformation plugin installed
 
 ## Files

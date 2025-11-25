@@ -34,7 +34,7 @@ jobs:
         ls -lh Jellyfin.Plugin.WebOSScrollFix_*.zip
     
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: plugin-package
         path: Jellyfin.Plugin.WebOSScrollFix_*.zip

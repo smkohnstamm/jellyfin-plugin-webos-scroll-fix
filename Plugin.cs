@@ -4,7 +4,7 @@ using System.Text.Json;
 using MediaBrowser.Common.Plugins;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Model.Plugins;
-using Microsoft.Extensions.Logging;
+using MediaBrowser.Model.Serialization;
 
 namespace Jellyfin.Plugin.WebOSScrollFix;
 
@@ -13,16 +13,11 @@ namespace Jellyfin.Plugin.WebOSScrollFix;
 /// </summary>
 public class Plugin : BasePlugin<PluginConfiguration>
 {
-    private readonly ILogger<Plugin> _logger;
-
     public Plugin(
         IApplicationPaths applicationPaths,
-        ILoggerFactory loggerFactory,
-        MediaBrowser.Model.Serialization.IJsonSerializer jsonSerializer,
-        IConfigurationManager configurationManager)
-        : base(applicationPaths, loggerFactory, jsonSerializer, configurationManager)
+        IXmlSerializer xmlSerializer)
+        : base(applicationPaths, xmlSerializer)
     {
-        _logger = loggerFactory.CreateLogger<Plugin>();
         Instance = this;
         
         // Register transformation after a short delay to ensure File Transformation is loaded
@@ -54,7 +49,7 @@ public class Plugin : BasePlugin<PluginConfiguration>
 
             if (fileTransformationAssembly == null)
             {
-                _logger.LogWarning("File Transformation plugin not found. Please install it first.");
+                Console.WriteLine("[WebOS Scroll Fix] File Transformation plugin not found. Please install it first.");
                 return;
             }
 
@@ -62,7 +57,7 @@ public class Plugin : BasePlugin<PluginConfiguration>
 
             if (pluginInterfaceType == null)
             {
-                _logger.LogWarning("File Transformation PluginInterface not found.");
+                Console.WriteLine("[WebOS Scroll Fix] File Transformation PluginInterface not found.");
                 return;
             }
 
@@ -70,7 +65,7 @@ public class Plugin : BasePlugin<PluginConfiguration>
 
             if (registerMethod == null)
             {
-                _logger.LogWarning("File Transformation RegisterTransformation method not found.");
+                Console.WriteLine("[WebOS Scroll Fix] File Transformation RegisterTransformation method not found.");
                 return;
             }
 
@@ -87,11 +82,12 @@ public class Plugin : BasePlugin<PluginConfiguration>
             // Register the transformation
             registerMethod.Invoke(null, new object?[] { JsonSerializer.Serialize(payload) });
 
-            _logger.LogInformation("WebOS Scroll Fix transformation registered successfully.");
+            Console.WriteLine("[WebOS Scroll Fix] Transformation registered successfully.");
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to register file transformation. Make sure File Transformation plugin is installed.");
+            Console.WriteLine($"[WebOS Scroll Fix] Failed to register file transformation: {ex.Message}");
+            Console.WriteLine($"[WebOS Scroll Fix] Make sure File Transformation plugin is installed.");
         }
     }
 }

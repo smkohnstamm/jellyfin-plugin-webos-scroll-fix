@@ -31,12 +31,28 @@ jobs:
         cd release
         zip -r ../Jellyfin.Plugin.WebOSScrollFix_${GITHUB_REF#refs/tags/}.zip .
         cd ..
+        ls -lh Jellyfin.Plugin.WebOSScrollFix_*.zip
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: plugin-package
+        path: Jellyfin.Plugin.WebOSScrollFix_*.zip
     
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
         files: Jellyfin.Plugin.WebOSScrollFix_*.zip
-        generate_release_notes: true
+        tag_name: ${{ github.ref_name }}
+        name: Release ${{ github.ref_name }}
+        body: |
+          WebOS Scroll Fix Plugin Release
+          
+          Fixes TV Guide scroll issue on WebOS (LG TV) devices.
+          
+          See README.md for installation instructions.
+        draft: false
+        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
